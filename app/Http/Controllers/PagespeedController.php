@@ -23,46 +23,42 @@ class PagespeedController extends Controller
      */
     public function create($user)
     {
-        //
-        //create a new pagespeed data
-            //$user = auth()->user();
-                ini_set('max_execution_time', 180); //3 minutes
+                //set max time to run script to 6min.
+                ini_set('max_execution_time', 360); //6 minutes
+
+                //get google api key from .env
                 $api = env('PAGESPEED_API');
+
+                //get domain from user
                 $domain = $user->domain;
+
+                //pagespeed api calls
                 $urlmobile = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' . $domain . '&locale=nl-NL&strategy=mobile&key=' . $api;
                 $urldesktop = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' . $domain . '&locale=nl-NL&strategy=desktop&key=' . $api;
-        //        //dd($url); &fields=lighthouseResult&prettyPrint=false&%2Fcategories%2F*%2Fscore &category=performance
+
                 $response = Http::timeout(-1)->get($urlmobile);
                 $resultMobile = ($response->json());
-                //dd($resultMobile);
+
                 $response = Http::timeout(-1)->get($urldesktop);
                 $resultDesktop = ($response->json());
-               //mobile data
+
+                //pagespeed api results to array
+                //mobile data
                 $pagespeed['mobile_pagespeedscore'] = ($resultMobile['lighthouseResult']['categories']['performance']['score']) * 100;
                 $pagespeed['mobile_pagespeed'] = round(($resultMobile['lighthouseResult']['audits']['speed-index']['numericValue']) / 1000, 2);
                 //desktop data
                 $pagespeed['desktop_pagespeedscore'] = ($resultDesktop['lighthouseResult']['categories']['performance']['score']) * 100;
                 $pagespeed['desktop_pagespeed'] = round(($resultDesktop['lighthouseResult']['audits']['speed-index']['numericValue']) / 1000, 2);
 
-
-
-        /*
-        $pagespeed['mobile_pagespeedscore'] = 1;
-        $pagespeed['mobile_pagespeed'] = 2;
-        $pagespeed['desktop_pagespeedscore'] = 3;
-        $pagespeed['desktop_pagespeed'] = 4;
-        */
-
-        $pagespeeddb = Pagespeed::create([
-            'mobile_score'          =>  $pagespeed['mobile_pagespeedscore'],
-            'desktop_score'         =>  $pagespeed['desktop_pagespeedscore'],
-            'mobile_speed'          =>  $pagespeed['mobile_pagespeed'],
-            'desktop_speed'         =>  $pagespeed['desktop_pagespeed'],
-            'domain'                =>  $user->id,
-            'user_id'               =>  $user->id,
-            ]);
-
-        //dd($pagespeeddb);
+                //save data to database
+                $pagespeeddb = Pagespeed::create([
+                    'mobile_score'          =>  $pagespeed['mobile_pagespeedscore'],
+                    'desktop_score'         =>  $pagespeed['desktop_pagespeedscore'],
+                    'mobile_speed'          =>  $pagespeed['mobile_pagespeed'],
+                    'desktop_speed'         =>  $pagespeed['desktop_pagespeed'],
+                    'domain'                =>  $user->id,
+                    'user_id'               =>  $user->id,
+                    ]);
     }
 
     /**

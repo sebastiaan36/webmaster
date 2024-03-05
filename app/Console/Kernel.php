@@ -22,9 +22,9 @@ class Kernel extends ConsoleKernel
                 $controller = new \App\Http\Controllers\PagespeedController();
                 $controller->create($user);
             }
-        })->everyFiveMinutes();
+        })->dailyAt('01:00');
 
-            //->dailyAt('01:00');
+
     }
 
     /**
