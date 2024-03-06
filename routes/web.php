@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PagespeedController;
+use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('pagespeed', PagespeedController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+});
+
 
 require __DIR__.'/auth.php';
