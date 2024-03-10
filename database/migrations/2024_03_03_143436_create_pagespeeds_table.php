@@ -18,7 +18,8 @@ return new class extends Migration
             $table->integer('desktop_score');
             $table->decimal('desktop_speed',10,2);
             $table->foreignId('user_id')->constrained();
-            $table->string('domain');
+            $table->integer('domain');
+            $table->integer('link');
             $table->timestamps();
         });
     }

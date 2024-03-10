@@ -21,7 +21,7 @@ class PagespeedController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($user)
+    public function create($url)
     {
                 //set max time to run script to 6min.
                 ini_set('max_execution_time', 360); //6 minutes
@@ -30,7 +30,7 @@ class PagespeedController extends Controller
                 $api = env('PAGESPEED_API');
 
                 //get domain from user
-                $domain = $user->domain;
+                $domain = $url->url;
 
                 //pagespeed api calls
                 $urlmobile = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' . $domain . '&locale=nl-NL&strategy=mobile&key=' . $api;
@@ -56,9 +56,11 @@ class PagespeedController extends Controller
                     'desktop_score'         =>  $pagespeed['desktop_pagespeedscore'],
                     'mobile_speed'          =>  $pagespeed['mobile_pagespeed'],
                     'desktop_speed'         =>  $pagespeed['desktop_pagespeed'],
-                    'domain'                =>  $user->id,
-                    'user_id'               =>  $user->id,
+                    'domain'                =>  $url->domain,
+                    'user_id'               =>  $url->user_id,
+                    'link'                  =>  $url->id,
                     ]);
+                return ($pagespeeddb);
     }
 
     /**

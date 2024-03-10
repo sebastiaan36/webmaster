@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePagespeedRequest extends FormRequest
+class StoreLinkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,9 @@ class StorePagespeedRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'mobile_score' => ['required', 'string'],
-            'mobile_speed' =>  ['required', 'string'],
-            'desktop_score' => ['required', 'string'],
-            'desktop_speed' => ['required', 'string'],
+            'url' => ['required', 'string', 'unique:links,url'],
             'domain' => ['required', 'string'],
-            'link' =>   ['required', 'string'],
+
         ];
     }
 }

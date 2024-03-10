@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('domain')->unique();
+        Schema::create('links', function (Blueprint $table) {
+            $table->id();
+            $table->string('url');
+            $table->foreignId('user_id')->constrained();
+            $table->integer('domain');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('domain');
-        });
+        Schema::dropIfExists('links');
     }
 };

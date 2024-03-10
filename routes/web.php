@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PagespeedController;
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\DomainController;
 use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::resource('pagespeed', PagespeedController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::resource('pagespeed', PagespeedController::class);
+    Route::resource('domain', DomainController::class);
+    Route::resource('link', LinkController::class);
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');

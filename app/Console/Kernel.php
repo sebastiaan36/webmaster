@@ -4,6 +4,8 @@ namespace App\Console;
 
 
 use App\Http\Controllers\PagespeedController;
+use App\Models\Link;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Models\User;
@@ -17,12 +19,17 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->call(function (){
-            $users = User::all();
-            foreach ($users as $user) {
+
+            $links = Link::where('updated_at', '<', Carbon::today()->toDateString())->first();
+            if($links) {
                 $controller = new \App\Http\Controllers\PagespeedController();
-                $controller->create($user);
+                $result = $controller->create($links);
+                if ($result) {
+                    Link::where('id', '=', $links->id)->update(['url' => $links->url]);
+                }
             }
-        })->dailyAt('01:00');
+
+        })->everyFiveMinutes();
 
 
     }
