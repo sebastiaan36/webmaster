@@ -17,7 +17,7 @@ class DomainController extends Controller
     public function index()
     {
 
-
+        $links = array();
         $user_id = auth()->user()->id;
         $domains = auth()->user()->domains()->get();
 
