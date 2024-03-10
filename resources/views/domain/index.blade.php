@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            @foreach($links as $link)
+            @forelse($links as $link)
                 <div class="m-4">
                 <table class="table-auto w-full border-collapse border m-6">
                     <thead>
@@ -12,16 +12,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                @foreach($link as $l)
+                @forelse($link as $l)
                     <tr>
                         <td><a href="{{ route('link.show', $l->id) }}">{{$l->url}}</a></td>
                         <td>{{$l->created_at}}</td>
                     </tr>
-                @endforeach
+                @empty
+                    <p>no links to display</p>
+                @endforelse
                     </tbody>
                 </table>
                 </div>
-            @endforeach
+            @empty
+                <p>Please add your first url</p>
+            @endforelse
 
         </div>
     </div>
