@@ -14,12 +14,13 @@
                     <tbody>
                 @forelse($link as $l)
                     <tr>
-                        <td><a href="{{ route('link.show', $l->id) }}">{{$l->url}}</a></td>
+                        <td><a href="{{ route('domain.link.show',  [$l->domain, $l->id]) }}">{{$l->url}}</a></td>
                         <td>{{$l->created_at}}</td>
                     </tr>
-                @empty
-                    <p>no links to display</p>
+                    @empty
                 @endforelse
+
+
                     </tbody>
                 </table>
                 </div>

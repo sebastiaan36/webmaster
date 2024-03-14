@@ -59,7 +59,7 @@ class DomainController extends Controller
             'domain'    =>      $domains->id,
 
         ]);
-        return view('domain.index');
+        return redirect()->route('domain.index');
     }
 
     /**

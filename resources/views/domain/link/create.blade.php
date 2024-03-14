@@ -2,17 +2,17 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <form method="POST" action="{{ route('link.store') }}"  enctype="multipart/form-data">
+            <form method="POST" action="{{ route('domain.link.store', $domain->id) }}"  enctype="multipart/form-data">
             @csrf
                 <!-- Name -->
                 <div>
                     <div class="">
-                        <h1 class="text-3xl my-7">Add new url for {{$user->domain}} to track</h1>
+                        <h1 class="text-3xl my-7">Add new url for {{$domain->$domain}} to track</h1>
                     </div>
                     <div class="flex">
                         <x-input-label class="mr-5 pt-2" for="url" :value="__('Url')" />
                     <div class="flex w-100 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                    <span class="flex select-none items-center pl-5 text-gray-500 sm:text-m">{{$user->domain}}/</span>
+                    <span class="flex select-none items-center pl-5 text-gray-500 sm:text-m">{{$domain->domain}}/</span>
                     <x-text-input id="url" class="block flex-1 border-0 bg-white py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-" type="text" name="url" :value="old('url')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('url')" class="mt-2" />
                     </div>
@@ -22,13 +22,13 @@
 
                 </div>
 
-            <x-text-input class="hidden" id="domain" name="domain" value="{{$user->domain}}" />
+            <x-text-input class="hidden" id="domain" name="domain" value="{{$domain->domain}}" />
                     <x-input-error :messages="$errors->get('url')" class="mt-2" />
 
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <div>{{$error}}</div>
-                @endforeach
+                    @if($errors->has('url'))
+                        <div class="alert alert-danger">
+                            {{ $errors->first('url') }}
+                        </div>
                 @endif
             </form>
             <div class="mt-8">

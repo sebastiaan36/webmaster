@@ -13,7 +13,7 @@
                         <x-input-label class="mr-5 pt-2" for="url" :value="__('Url')" />
                         <div class="flex w-100 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                             <span class="flex select-none items-center pl-5 text-gray-500 sm:text-m">https://</span>
-                            <x-text-input id="url" class="block flex-1 border-0 bg-white py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-" type="text" name="domain" :value="old('domain')" required autofocus autocomplete="name" />
+                            <x-text-input id="url" class="block flex-1 border-0 bg-white py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-" type="text" name="domain" :value="old('domain')" required autofocus placeholder="been-vandam.nl"/>
                             <x-input-error :messages="$errors->get('url')" class="mt-2" />
                         </div>
                         <x-primary-button class="ml-4 flex-2 bg-green-600 hover:bg-green-700">

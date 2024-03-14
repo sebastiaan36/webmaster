@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Domain;
 use App\Models\Link;
 use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
@@ -14,21 +15,31 @@ class LinkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Domain $domain)
     {
         //
+        $links = Link::where('domain', $domain->id)->get();
+        foreach ($links as $link){
+            $pagespeeds = Pagespeed::where('link', $link->id)->latest()->first();
+            $link->pagespeeds = $pagespeeds;
+        }
+
+
+
+        return view('domain.link.index')->with(compact('links', 'domain'));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($domain_id)
     {
         $user = auth()->user();
         $urls = Link::where('user_id', $user->id)->get();
+        $domain = Domain::where('id', $domain_id)->first();
 
-
-        return view('link.create')->with(compact('user', 'urls'));
+        return view('domain.link.create')->with(compact('user', 'urls', 'domain'));
     }
 
     /**
@@ -44,13 +55,13 @@ class LinkController extends Controller
             'domain'        =>      auth()->user()->id,
 
         ]);
-        return response()->redirectTo(route('link.index'));
+        return response()->redirectTo(route('domain.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Link $link)
+    public function show(Domain $domain, Link $link)
     {
         /*
         if($request->days != "") {
@@ -75,7 +86,7 @@ class LinkController extends Controller
             ->where('created_at', '>', now()->subDays($days)->endOfDay())
             ->get();
 
-        return view('link.show')->with(compact('pagespeedAvg', 'data', 'days', 'datatable', 'link'));
+        return view('domain.link.show')->with(compact('pagespeedAvg', 'data', 'days', 'datatable', 'link'));
     }
 
 

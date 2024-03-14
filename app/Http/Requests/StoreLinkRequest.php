@@ -27,4 +27,10 @@ class StoreLinkRequest extends FormRequest
 
         ];
     }
+    public function messages()
+    {
+        return [
+            'url.unique' => 'The URL must be unique.',
+        ];
+    }
 }

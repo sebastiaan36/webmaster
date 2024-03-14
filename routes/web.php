@@ -35,7 +35,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('pagespeed', PagespeedController::class);
     Route::resource('domain', DomainController::class);
-    Route::resource('link', LinkController::class);
+    //Route::resource('link', LinkController::class);
+    // all links have a domain, make the route reflect that
+    Route::resource('domain.link', LinkController::class);
 
 });
 
