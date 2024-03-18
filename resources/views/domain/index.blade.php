@@ -4,17 +4,17 @@
 
             @forelse($links as $link)
                 <div class="m-4">
-                <table class="table-auto w-full border-collapse border m-6">
+                <table class="table-fixed w-full border-collapse m-6">
                     <thead>
                         <tr>
-                            <th class="bg-green-200 border border-slate-300">URL</th>
-                            <th class="bg-green-200 border border-slate-300">Created</th>
+                            <th class="text-left p-2 bg-green-500 text-white rounded-tl-lg">URL</th>
+                            <th class="text-left p-2 bg-green-500 text-white rounded-tr-lg">Created</th>
                         </tr>
                     </thead>
                     <tbody>
                 @forelse($link as $l)
-                    <tr>
-                        <td><a href="{{ route('domain.link.show',  [$l->domain, $l->id]) }}">{{$l->url}}</a></td>
+                    <tr class="border hover:bg-green-100">
+                        <td class="p-2"><a href="{{ route('domain.link.show',  [$l->domain, $l->id]) }}">{{$l->url}}</a></td>
                         <td>{{$l->created_at}}</td>
                     </tr>
                     @empty

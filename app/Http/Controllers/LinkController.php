@@ -6,6 +6,7 @@ use App\Models\Domain;
 use App\Models\Link;
 use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
+use Illuminate\Http\Request;
 use App\Models\Pagespeed;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,9 @@ class LinkController extends Controller
     {
         //
         $links = Link::where('domain', $domain->id)->get();
+
         foreach ($links as $link){
+
             $pagespeeds = Pagespeed::where('link', $link->id)->latest()->first();
             $link->pagespeeds = $pagespeeds;
         }
@@ -36,7 +39,7 @@ class LinkController extends Controller
     public function create($domain_id)
     {
         $user = auth()->user();
-        $urls = Link::where('user_id', $user->id)->get();
+        $urls = Link::where('domain', $domain_id)->get();
         $domain = Domain::where('id', $domain_id)->first();
 
         return view('domain.link.create')->with(compact('user', 'urls', 'domain'));
@@ -61,16 +64,16 @@ class LinkController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Domain $domain, Link $link)
+    public function show(Domain $domain, Link $link, Request $request)
     {
-        /*
+
         if($request->days != "") {
             $days = $request->days;
         }
         else{
-            $days = 30;
-        }*/
-        $days = 14;
+            $days = 14;
+        }
+        //$days = 14;
 
         $user_id = auth()->user()->id;
 
@@ -82,7 +85,7 @@ class LinkController extends Controller
 
         $data = $this->chartdata($link->id, $days);
 
-        $datatable = Pagespeed::where('user_id', '=', $user_id )
+        $datatable = Pagespeed::where('link', '=', $link->id )
             ->where('created_at', '>', now()->subDays($days)->endOfDay())
             ->get();
 

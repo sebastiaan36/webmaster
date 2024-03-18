@@ -7,7 +7,7 @@
                 <!-- Name -->
                 <div>
                     <div class="">
-                        <h1 class="text-3xl my-7">Add new url for {{$domain->$domain}} to track</h1>
+                        <h1 class="text-3xl my-7">Add new url for {{$domain->domain}} to track</h1>
                     </div>
                     <div class="flex">
                         <x-input-label class="mr-5 pt-2" for="url" :value="__('Url')" />
@@ -45,7 +45,7 @@
                     @foreach($urls as $url)
                         <tr class="border hover:bg-green-100">
                             <td class="ml-2 p-2">{{$url->url}}</td>
-                            <td>{{$url->created_at}}</td>
+                            <td>{{ $url->created_at->diffForHumans() }}</td>
                         </tr>
                     @endforeach
                 </tbody>
