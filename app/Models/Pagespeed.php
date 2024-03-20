@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pagespeed extends Model
 {
     use HasFactory;
-    protected $fillable = ['mobile_score', 'mobile_speed', 'desktop_score', 'desktop_speed', 'user_id', 'domain', 'link'];
+    protected $fillable = ['mobile_score', 'mobile_speed', 'desktop_score', 'desktop_speed', 'user_id', 'domain', 'link', 'FCP_mobile', 'LCP_mobile', 'CLS_mobile', 'TBT_mobile', 'TTI_mobile', 'size_mobile', 'FCP_desktop', 'LCP_desktop', 'CLS_desktop', 'TBT_desktop', 'TTI_desktop', 'size_desktop'];
     protected $dates = ['created_at'];
 
     public function link(): HasMany

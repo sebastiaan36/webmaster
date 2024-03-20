@@ -28,6 +28,23 @@ class StorePagespeedRequest extends FormRequest
             'desktop_speed' => ['required', 'string'],
             'domain' => ['required', 'string'],
             'link' =>   ['required', 'string'],
+            'user_id' => ['required', 'string'],
+
+            'FCP_mobile' => ['required', 'string'],
+            'LCP_mobile' => ['required', 'string'],
+            'CLS_mobile' => ['required', 'string'],
+            'TBT_mobile' => ['required', 'string'],
+            'TTI_mobile' => ['required', 'string'],
+            'size_mobile' => ['required', 'string'],
+
+            'FCP_desktop' => ['required', 'string'],
+            'LCP_desktop' => ['required', 'string'],
+            'CLS_desktop' => ['required', 'string'],
+            'TBT_desktop' => ['required', 'string'],
+            'TTI_desktop' => ['required', 'string'],
+            'size_desktop' => ['required', 'string'],
+
+
         ];
     }
 }
