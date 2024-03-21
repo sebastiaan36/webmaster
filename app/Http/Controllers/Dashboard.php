@@ -15,10 +15,73 @@ class Dashboard extends Controller
     public function index()
     {
         $domains = Domain::where('user_id', auth()->user()->id)->get();
+        //$links = Link::where('domain', ;
         foreach ($domains as $domain){
             $count[$domain->id] = $domain->link()->count();
+            //get the avarage pagespeed score for the first link of this user over the past 7 days
+            $pagespeed[$domain->id]['mobile_score'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->avg('mobile_score');
+            $pagespeed[$domain->id]['desktop_score'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->avg('desktop_score');
+            $pagespeed[$domain->id]['mobile_speed'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->avg('mobile_speed');
+            $pagespeed[$domain->id]['desktop_speed'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->avg('desktop_speed');
+
+            //get the avarage pagespeed['desktop_speed'] for the last 7 days grouped by day
+            $pagespeed[$domain->id]['desktop_days'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->select(DB::raw('DATE(created_at) as date'), DB::raw('AVG(desktop_speed) as desktop_speed'))
+                ->groupBy('date')
+                ->get();
+            foreach ($pagespeed[$domain->id]['desktop_days'] as $day){
+                $graph[$domain->id]['desktop_days']['labels'][] = $day->date;
+                $graph[$domain->id]['desktop_days']['data'][] = round($day->desktop_speed,2);
+            }
+
+            $pagespeed[$domain->id]['mobile_days'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where('created_at', '>=', Carbon::now()->subDays(7))
+                ->select(DB::raw('DATE(created_at) as date'), DB::raw('AVG(mobile_speed) as mobile_speed'))
+                ->groupBy('date')
+                ->get();
+            foreach ($pagespeed[$domain->id]['mobile_days'] as $day){
+                $graph[$domain->id]['mobile_days']['labels'][] = $day->date;
+                $graph[$domain->id]['mobile_days']['data'][] = round($day->mobile_speed,2);
+            }
+
+            $pagespeed[$domain->id]['need_work'] = DB::table('pagespeeds')
+                ->where('domain', $domain->id)
+                ->where(function($query){
+                    $query->where('mobile_speed', '<', 50)
+                        ->orWhere('desktop_speed', '<', 65);
+                })->get()->countBy('link')->count();
+
+
+
+
+
+
+
         }
-        $links = Link::where('user_id', auth()->user()->id)->take(5)->get();
-        return view('dashboard')->with(compact('domains', 'links', 'count'));
+
+
+
+
+
+
+
+
+
+        return view('dashboard')->with(compact('domains', 'count', 'pagespeed', 'graph'));
     }
 }

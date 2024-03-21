@@ -10,9 +10,9 @@
             <table class="table-auto w-full border-collapse border">
                 <thead>
                 <tr>
-                    <th class="text-left p-2 bg-green-500 text-white rounded-tl-lg"><span class="material-symbols-outlined text-3xl text-white">phone_iphone</span> <span class="align-super">Mobile</span></th>
-                    <th class="text-center p-2 bg-green-500 text-white ">Mobile Score</th>
-                    <th class="text-center p-2 bg-green-500 text-white ">Mobile Speed</th>
+                    <th style="width:30%" class="text-left p-2 bg-green-500 text-white rounded-tl-lg"><span class="material-symbols-outlined text-3xl text-white">phone_iphone</span> <span class="align-super">Mobile</span></th>
+                    <th class="text-center p-2 bg-green-500 text-white ">Score</th>
+                    <th class="text-center p-2 bg-green-500 text-white ">Speed</th>
 
                     <th class="text-center p-2 bg-green-500 text-white ">FCP</th>
                     <th class="text-center p-2 bg-green-500 text-white ">TBT</th>
@@ -60,9 +60,9 @@
             <table class="table-auto w-full border-collapse border">
                 <thead>
                 <tr>
-                    <th class="text-left p-2 bg-green-500 text-white rounded-tl-lg align-middle"><span class="material-symbols-outlined text-3xl text-white">desktop_windows</span> <span class="align-super">Desktop</span></th>
-                    <th class="text-center p-2 bg-green-500 text-white ">Desktop Score</th>
-                    <th class="text-center p-2 bg-green-500 text-white ">Desktop Speed</th>
+                    <th style="width:30%" class="text-left p-2 bg-green-500 text-white rounded-tl-lg align-middle"><span class="material-symbols-outlined text-3xl text-white">desktop_windows</span> <span class="align-super">Desktop</span></th>
+                    <th class="text-center p-2 bg-green-500 text-white ">Score</th>
+                    <th class="text-center p-2 bg-green-500 text-white ">Speed</th>
 
                     <th class="text-center p-2 bg-green-500 text-white ">FCP</th>
                     <th class="text-center p-2 bg-green-500 text-white ">TBT</th>
