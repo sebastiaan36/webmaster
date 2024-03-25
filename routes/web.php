@@ -6,6 +6,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\Dashboard;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,4 +85,8 @@ Route::prefix('canvas-ui')->group(function () {
     Route::get('/{view?}', [\App\Http\Controllers\CanvasUiController::class, 'index'])
          ->where('view', '(.*)')
          ->name('canvas-ui');
+});
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
 });
