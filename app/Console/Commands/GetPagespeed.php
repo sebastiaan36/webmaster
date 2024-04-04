@@ -3,7 +3,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Link;
 use App\Models\Pagespeed;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class GetPagespeed extends Command
@@ -13,27 +15,43 @@ class GetPagespeed extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-pagespeed';
+    protected $signature = 'Pagespeed:GetPagespeed';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Get all the pagespeed results';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //this should get the user from DB and run pagespeed.create with that info
-        $users = User::all();
-        foreach ($users as $user){
-            return view('pagespeed.create', [
-                'user' => $user,
-            ]);
-        }
+        $this->info('Starting to get links');
+        $links = Link::where('updated_at', '<', Carbon::today()->toDateString())->limit(10)->get();
 
+        //get the amount of rows $links got from the database
+        $linksCount = count($links);
+        //start the progressbar with $linkcount amount of steps
+        $bar = $this->output->createProgressBar($linksCount);
+        $this->line('');
+        $this->info('There are ' . $linksCount . ' links to check');
+
+        if ($links) {
+            $bar->start();
+
+            foreach ($links as $link) {
+                $this->info('testing link:' . $link->url);
+                $controller = new \App\Http\Controllers\PagespeedController();
+                $result = $controller->create($link);
+                if ($result) {
+                    Link::where('id', '=', $link->id)->update(['url' => $link->url]);
+                }
+                $bar->advance();
+            }
+            $bar->finish();
+        }
     }
 }

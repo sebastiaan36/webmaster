@@ -3,7 +3,6 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-
         "dev": "vite"
     },
     "devDependencies": {
@@ -32,5 +31,8 @@
         "vue-meta": "^2.4.0",
         "vue-router": "^3.4.9",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "puppeteer": "^22.6.1"
     }
 }

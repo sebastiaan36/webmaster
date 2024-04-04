@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Link extends Model
 {
     use HasFactory;
-    protected $fillable = ['url', 'domain', 'user_id'];
+    protected $fillable = ['url', 'domain', 'user_id', 'updated_at'];
 
     public function domain(): BelongsTo
     {

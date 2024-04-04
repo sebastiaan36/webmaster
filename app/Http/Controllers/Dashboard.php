@@ -64,23 +64,8 @@ class Dashboard extends Controller
                 ->where(function($query){
                     $query->where('mobile_speed', '<', 50)
                         ->orWhere('desktop_speed', '<', 65);
-                })->get()->countBy('link')->count();
-
-
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-
+                })->whereDate('created_at', Carbon::today())->get()->countBy('link')->count();
+              }
 
         return view('dashboard')->with(compact('domains', 'count', 'pagespeed', 'graph'));
     }

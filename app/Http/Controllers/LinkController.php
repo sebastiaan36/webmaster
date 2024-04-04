@@ -51,14 +51,22 @@ class LinkController extends Controller
     public function store(StoreLinkRequest $request)
     {
         $url = $request->domain . "/" . $request->url;
-        //dd($request);
-        $links = Link::create([
-            'url'           =>      $url,
-            'user_id'       =>      auth()->user()->id,
-            'domain'        =>      auth()->user()->id,
 
-        ]);
-        return response()->redirectTo(route('domain.index'));
+        if ($this->check404($url) === false) {
+
+            $links = Link::create([
+                'url' => $url,
+                'user_id' => auth()->user()->id,
+                'domain' => $request->domain_id,
+                'updated_at' => Carbon::now()->subDays(1),
+
+            ]);
+            return response()->redirectTo(route('domain.link.create', $request->domain_id))->with('message', 'The url has been added to the tracker');
+        }
+        else{
+            return response()->redirectTo(route('domain.link.create', $request->domain_id))->with('message', 'The URL returned a 404 error, please check the link');
+        }
+
     }
 
     /**
@@ -89,7 +97,7 @@ class LinkController extends Controller
             ->where('created_at', '>', now()->subDays($days)->endOfDay())
             ->get();
 
-        return view('domain.link.show')->with(compact('pagespeedAvg', 'data', 'days', 'datatable', 'link'));
+        return view('domain.link.show')->with(compact('pagespeedAvg', 'data', 'days', 'datatable', 'link', 'domain'));
     }
 
 
@@ -144,5 +152,11 @@ class LinkController extends Controller
             }
         }
         return $data;
+    }
+
+    public function check404($url)
+    {
+        $headers = get_headers($url, 1);
+        if ($headers[0] != 'HTTP/1.1 200 OK') return true; else return false;
     }
 }

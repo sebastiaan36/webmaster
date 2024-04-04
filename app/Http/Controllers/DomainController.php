@@ -25,7 +25,13 @@ class DomainController extends Controller
             $links[] = $domain->link()->get();
         }
 
-        return view('domain.index')->with(compact('domains', 'links'));
+        //if domains has only one domain return the links index view
+        if (count($domains) == 1) {
+            return view('link.index', $domains[0]->id);
+        }
+        else {
+            return view('domain.index')->with(compact('domains', 'links'));
+        }
     }
 
     /**
@@ -45,7 +51,7 @@ class DomainController extends Controller
     public function store(StoreDomainRequest $request)
     {
         //
-        $url = "https://" . $request->domain;
+        $url = $request->domain;
 
         $domains = Domain::create([
             'user_id'   =>      auth()->user()->id,
@@ -57,6 +63,7 @@ class DomainController extends Controller
             'url'       =>      $url,
             'user_id'   =>      auth()->user()->id,
             'domain'    =>      $domains->id,
+            'updated_at' =>     Carbon::now()->subDays(1),
 
         ]);
         return redirect()->route('domain.index');
@@ -93,4 +100,6 @@ class DomainController extends Controller
     {
         //
     }
+
+
 }

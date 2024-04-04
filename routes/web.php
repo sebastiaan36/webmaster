@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PagespeedController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\BrowsershotController;
 use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -90,3 +93,9 @@ Route::prefix('canvas-ui')->group(function () {
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+
+Route::get('/testmail', [MailController::class, 'index']);
+
+Route::get('/screenshot', [BrowsershotController::class, 'screenshot']);
+
+Route::get('/contact', [MailController::class, 'SendMail'])->name('contact.sendmail');

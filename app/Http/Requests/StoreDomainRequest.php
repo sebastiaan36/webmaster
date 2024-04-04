@@ -22,7 +22,7 @@ class StoreDomainRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'domain' => ['required', 'string', 'unique:domains,domain'],
+            'domain' => ['required', 'string', 'unique:domains,domain', 'url:https', 'active_url'],
 
         ];
     }

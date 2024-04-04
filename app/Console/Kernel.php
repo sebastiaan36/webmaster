@@ -18,19 +18,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
 
-        $schedule->call(function (){
-
-            $links = Link::where('updated_at', '<', Carbon::today()->toDateString())->first();
-            if($links) {
-                $controller = new \App\Http\Controllers\PagespeedController();
-                $result = $controller->create($links);
-                if ($result) {
-                    Link::where('id', '=', $links->id)->update(['url' => $links->url]);
-                }
-            }
-
-        })->everyFiveMinutes();
-
+        $schedule->command('Pagespeed:GetPagespeed')->hourly()->withoutOverlapping();
+        $schedule->command('app:browsershot')->hourly()->withoutOverlapping();
 
     }
 

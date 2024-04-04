@@ -12,10 +12,29 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Epilogue', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                "theme": {
+                    "dark" : "#013941",
+                    "light" : "#fbfbfb",
+                    "jade" : "#00d47e",
+                    "evergreen" : "#009156",
+                    "teal" : "#06606b",
+                    "lemon" : "#f8ed92",
+                    "mint" : "#d2fee1",
+                    "lavender" : "#d4c4fc",
+                    "amethyst" : "#e3d8fe",
+                    "arctic" : "#e3f7fa",
+                    "pearl" : "#fcf8da",
+
+
+                },
             },
         },
     },
+
+
 
     plugins: [forms],
 };

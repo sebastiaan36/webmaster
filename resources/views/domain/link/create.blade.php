@@ -19,10 +19,16 @@
                         <x-primary-button class="ml-4 flex-2 bg-green-600 hover:bg-green-700">
                             {{ __('Add') }}
                         </x-primary-button>
+                    </div>
+                    @if(session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                        @endif
 
-                </div>
 
-            <x-text-input class="hidden" id="domain" name="domain" value="{{$domain->domain}}" />
+                    <x-text-input class="hidden" id="domain" name="domain" value="{{$domain->domain}}" />
+                    <x-text-input class="hidden" id="domain_id" name="domain_id" value="{{$domain->id}}" />
                     <x-input-error :messages="$errors->get('url')" class="mt-2" />
 
                     @if($errors->has('url'))
@@ -33,11 +39,11 @@
             </form>
             <div class="mt-8">
                 <p class="my-4">Url's you are already tracking</p>
-            <table class="table-auto w-full border-collapse border">
+            <table class="table-auto w-full border-collapse ">
                 <thead>
                 <tr class="p-2">
-                    <th class="bg-green-200 border border-slate-300">URL</th>
-                    <th class="bg-green-200 border border-slate-300">Added</th>
+                    <th class="bg-theme-evergreen p-2 text-theme-light rounded-tl-lg">URL</th>
+                    <th class="bg-theme-evergreen p-2 text-theme-light rounded-tr-lg">Added</th>
                 </tr>
                 </thead>
                 <tbody>
