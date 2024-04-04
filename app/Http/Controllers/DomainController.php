@@ -26,12 +26,9 @@ class DomainController extends Controller
         }
 
         //if domains has only one domain return the links index view
-        if (count($domains) == 1) {
-            return view('domain.link.index', $domains[0]->id);
-        }
-        else {
+
             return view('domain.index')->with(compact('domains', 'links'));
-        }
+        
     }
 
     /**
