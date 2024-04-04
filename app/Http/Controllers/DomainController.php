@@ -28,7 +28,7 @@ class DomainController extends Controller
         //if domains has only one domain return the links index view
 
             return view('domain.index')->with(compact('domains', 'links'));
-        
+
     }
 
     /**

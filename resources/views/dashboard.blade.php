@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="mt-5 text-theme-light mb-2"><p>There are <a
                                             href="{{route('domain.link.index', $domain->id)}}"
-                                            class="font-bold">{{$pagespeed[$domain->id]['need_work']}} page(s)</a> that
+                                            class="font-bold">{{count($pagespeed[$domain->id]['need_work'])}} page(s)</a> that
                                         need improvement</p></div>
 
                             </div>

@@ -79,7 +79,7 @@
                     <div
                         class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                         <a rel="noopener noreferrer" href="/register"
-                           class="bg-theme-jade hover:bg-theme-evergreen text-white px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Start
+                           class="bg-theme-jade hover:bg-theme-evergreen text-white px-8 py-3 text-lg font-semibold rounded ">Start
                             for free</a>
                         <a rel="noopener noreferrer" href="#price"
                            class="px-8 py-3 text-lg text-theme-dark font-semibold border-theme-jade border rounded">Check price</a>
@@ -136,9 +136,9 @@
         <section class="sm:h-screen content-center">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Stay on top of
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">Stay on top of
                         your pagespeed</h2>
-                    <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Pagespeed is one of the more
+                    <p class="mb-5 font-light text-gray-500 sm:text-xl ">Pagespeed is one of the more
                         import metrics for your SEO score. Stay up to date on your page performance and see the results
                         in a simple overview. You can start for free. That's <strong class="font-weight-700">forever
                             free</strong> if you just want to track your homepage!</p>
@@ -146,19 +146,19 @@
                 <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
                     <!-- Pricing Card -->
                     <div
-                        class="flex justify-between flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 transition duration-500 hover:scale-110 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="flex justify-between flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 transition duration-500 hover:scale-110 shadow">
                         <h3 class="mb-4 text-2xl font-semibold">Free</h3>
-                        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use
+                        <p class="font-light text-gray-500 sm:text-lg ">Best option for personal use
                             or small business if you just want to track your homepage</p>
                         <div class="flex justify-center items-baseline my-8">
                             <span class="mr-2 text-5xl font-extrabold">€0</span>
-                            <span class="text-gray-500 dark:text-gray-400">/month</span>
+                            <span class="text-gray-500">/month</span>
                         </div>
                         <!-- List -->
                         <ul role="list" class="mb-8 space-y-4 text-left">
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -168,7 +168,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 "
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -178,7 +178,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -189,7 +189,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 "
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -199,7 +199,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -209,25 +209,25 @@
                             </li>
                         </ul>
                         <a href="/register"
-                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get
+                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Get
                             started</a>
                     </div>
                     <!-- Pricing Card -->
                     <div
-                        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white transition duration-500 hover:scale-110 rounded-lg border border-gray-100 shadow xl:p-8 dark:bg-gray-800 dark:text-white">
+                        class="flex justify-between flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white transition duration-500 hover:scale-110 rounded-lg border border-gray-100 shadow xl:p-8">
                         <h3 class="mb-4 text-2xl font-semibold">Company</h3>
                         <p class="font-light sm:text-lg">Track <span
                                 class="font-semibold">1 domain</span> and <span
                                 class="font-semibold">max. 25 pages</span>. Ideal if you want to track your important pages</p>
                         <div class="flex justify-center items-baseline my-8">
                             <span class="mr-2 text-5xl font-extrabold">€4,99</span>
-                            <span class="text-gray-500 dark:text-gray-400">/month</span>
+                            <span class="text-gray-500">/month</span>
                         </div>
                         <!-- List -->
                         <ul role="list" class="mb-8 space-y-4 text-left">
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -237,7 +237,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -247,7 +247,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 "
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -257,7 +257,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -267,7 +267,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -277,24 +277,24 @@
                             </li>
                         </ul>
                         <a href="/register"
-                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white">Get
+                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Get
                             started</a>
                     </div>
                     <!-- Pricing Card -->
                     <div
-                        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow  xl:p-8 dark:bg-gray-800 transition duration-500 hover:scale-110">
+                        class="flex flex-col justify-between p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow  xl:p-8  transition duration-500 hover:scale-110">
                         <h3 class="mb-4 text-2xl font-semibold">Agency</h3>
-                        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Ideel for agencies who want to
+                        <p class="font-light text-gray-500 sm:text-lg">Ideel for agencies who want to
                             track their customers website. Pay per tracked domain (min 10 domains)</p>
                         <div class="flex justify-center items-baseline my-8">
                             <span class="mr-2 text-5xl font-extrabold">€0,99</span>
-                            <span class="text-gray-500 dark:text-gray-400">/domain</span>
+                            <span class="text-gray-500 ">/domain</span>
                         </div>
                         <!-- List -->
                         <ul role="list" class="mb-8 space-y-4 text-left">
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 "
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -304,7 +304,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 "
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -314,7 +314,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -324,7 +324,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -334,7 +334,7 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <!-- Icon -->
-                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500"
                                      fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -344,7 +344,7 @@
                             </li>
                         </ul>
                         <a href="/register"
-                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get
+                           class="text-white bg-theme-jade hover:bg-theme-evergreen focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Get
                             started</a>
                     </div>
                 </div>
@@ -385,11 +385,11 @@
                     {{ csrf_field() }}
                     <label class="block">
                         <span class="mb-1">Full name</span>
-                        <input type="text" name="name" placeholder="Leroy Jenkins" class="text-theme-dark block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-400 dark:bg-gray-800">
+                        <input type="text" name="name" placeholder="Leroy Jenkins" class="text-theme-dark block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 ">
                     </label>
                     <label class="block">
                         <span class="mb-1">E-mail address</span>
-                        <input type="email" name="email" placeholder="leroy@jenkins.com" class="text-theme-dark block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-400 dark:bg-gray-800">
+                        <input type="email" name="email" placeholder="leroy@jenkins.com" class="text-theme-dark block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 ">
                     </label>
                     <label class="block">
                         <span class="mb-1">Message</span>

@@ -4,7 +4,7 @@
 
             <x-breadcrumbs page="link" :domain="$domain->domain" :domainid="$domain->id" :link="$link->url"/>
             @if(!empty($data))
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-center">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2 sm:p-6 text-center">
                 <div class="p-2 flex border-b-2 border-theme-evergreen flex-row flex-row-reverse">
                     <button class="bg-theme-jade rounded font-lg font-bold text-white p-2 ml-2 hover:bg-green-700" id="toggleButton">Toggle Graph/Table</button>
                     <div class="rounded ml-2 p-2 bg-theme-teal text-theme-light hover:bg-blue-500"><a href="?days=7">7 days</a></div>
@@ -13,20 +13,20 @@
                     <div class="rounded ml-2 p-2 bg-theme-teal text-theme-light"><a href="?days=90">90 days</a></div>
                 </div>
                 <h4 class="text-lg pt-4">Average Speed over last {{ $days }} days for: <br \> <span class="text-3xl font-bold text-theme-jade">{{$link->url}}</span></h4>
-                <div class="p-6 flex flex-row gap-2 flex-wrap md:flex-nowrap text-gray-900">
-                    <div class="basis-1/4 p-6  sm:basis-2/5:m6 lg:basis-1/4:m6 text-center  rounded bg-theme-evergreen">
+                <div class=" p-2 sm:p-6 flex flex-row gap-2 flex-nowrap text-gray-900">
+                    <div class="basis-1/4 p-2 sm:p-6 sm:basis-2/5 lg:basis-1/4:m6 text-center  rounded bg-theme-evergreen">
                         <p class="text-theme-light">Mobile Score</p>
                         <p class="font-lg font-black text-theme-light">{{ round($pagespeedAvg['mobile_score'], 0) }}</p>
                     </div>
-                    <div class="basis-1/4 p-6  sm:basis-2/5:m6 lg::basis-1/4:m6 text-center rounded bg-theme-evergreen">
+                    <div class="basis-1/4 p-2 sm:p-6  sm:basis-2/5  lg::basis-1/4:m6 text-center rounded bg-theme-evergreen">
                         <p class="text-theme-light">Mobile Speed</p>
                         <p class="font-lg font-black text-theme-light">{{ round($pagespeedAvg['mobile_speed'],2) }} sec</p>
                     </div>
-                    <div class="basis-1/4 p-6  sm:basis-2/5:m6 lg:basis-1/4:m6 text-center  rounded bg-theme-evergreen">
+                    <div class="basis-1/4 p-2 sm:p-6  sm:basis-2/5  lg:basis-1/4:m6 text-center  rounded bg-theme-evergreen">
                         <p class="text-theme-light">Desktop Score</p>
                         <p class="font-lg font-black text-theme-light">{{ round($pagespeedAvg['desktop_score'], 0) }}</p>
                     </div>
-                    <div class="basis-1/4 p-6  sm:basis-2/5:m6 lg::basis-1/4:m6 text-center rounded bg-theme-evergreen">
+                    <div class="basis-1/4 p-2 sm:p-6  sm:basis-2/5 lg::basis-1/4:m6 text-center rounded bg-theme-evergreen">
                         <p class="text-theme-light">Desktop Speed</p>
                         <p class="font-lg  font-black text-theme-light">{{ round($pagespeedAvg['desktop_speed'],2) }} sec</p>
                     </div>
