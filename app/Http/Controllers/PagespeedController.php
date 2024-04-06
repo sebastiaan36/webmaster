@@ -35,7 +35,7 @@ class PagespeedController extends Controller
         //get domain from user
          $domain = $url->url;
        // $domain = 'https://been-vandam.nl';
-        if ($this->check404($domain) === false) {
+        //if ($this->check404($domain) === false) {
 
             //pagespeed api calls
             $urlmobile = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' . $domain . '&locale=en-EN&strategy=mobile&key=' . $api;
@@ -105,13 +105,13 @@ class PagespeedController extends Controller
                 return ('there was an error');
             }
 
-        } else {
-            //log an error message to laravel with the url that returned a 404
-            Log::error("URL returned 404 for: $domain");
-            unset($resultMobile, $resultDesktop, $pagespeeddb);
-            return ('there was an error');
-
-        }
+        /* } else {
+             //log an error message to laravel with the url that returned a 404
+             Log::error("URL returned 404 for: $domain");
+             unset($resultMobile, $resultDesktop, $pagespeeddb);
+             return ('there was an error');
+ 
+         }*/
     }
 
     /**
