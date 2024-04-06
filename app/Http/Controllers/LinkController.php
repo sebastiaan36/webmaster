@@ -87,8 +87,22 @@ class LinkController extends Controller
 
         $pagespeedAvg['mobile_score'] = $this->averagePagespeed($link,'mobile_score', $days);
         $pagespeedAvg['mobile_speed'] = $this->averagePagespeed($link,'mobile_speed', $days);
+        $pagespeedAvg['FCP_mobile'] = $this->averagePagespeed($link,'FCP_mobile', $days);
+        $pagespeedAvg['LCP_mobile'] = $this->averagePagespeed($link,'LCP_mobile', $days);
+        $pagespeedAvg['CLS_mobile'] = $this->averagePagespeed($link,'CLS_mobile', $days);
+        $pagespeedAvg['TBT_mobile'] = $this->averagePagespeed($link,'TBT_mobile', $days);
+        $pagespeedAvg['size_mobile'] = $this->averagePagespeed($link,'size_mobile', $days);
+        $pagespeedAvg['TTI_mobile'] = $this->averagePagespeed($link,'TTI_mobile', $days);
         $pagespeedAvg['desktop_score'] = $this->averagePagespeed($link,'desktop_score', $days);
         $pagespeedAvg['desktop_speed'] = $this->averagePagespeed($link,'desktop_speed', $days);
+        $pagespeedAvg['FCP_desktop'] = $this->averagePagespeed($link,'FCP_desktop', $days);
+        $pagespeedAvg['LCP_desktop'] = $this->averagePagespeed($link,'LCP_desktop', $days);
+        $pagespeedAvg['CLS_desktop'] = $this->averagePagespeed($link,'CLS_desktop', $days);
+        $pagespeedAvg['TBT_desktop'] = $this->averagePagespeed($link,'TBT_desktop', $days);
+        $pagespeedAvg['size_desktop'] = $this->averagePagespeed($link,'size_desktop', $days);
+        $pagespeedAvg['TTI_desktop'] = $this->averagePagespeed($link,'TTI_desktop', $days);
+
+
 
 
         $data = $this->chartdata($link->id, $days);
@@ -139,7 +153,7 @@ class LinkController extends Controller
 
     function chartdata($link, $days){
         $data = array();
-        $columns = array('mobile_score', 'desktop_score', 'mobile_speed', 'desktop_speed');
+        $columns = array('mobile_score', 'desktop_score', 'mobile_speed', 'desktop_speed', 'CLS_mobile', 'CLS_desktop', 'LCP_mobile', 'LCP_desktop', 'TBT_mobile', 'TBT_desktop',  'FCP_mobile', 'FCP_desktop', 'size_mobile', 'size_desktop');
         foreach ($columns as $column) {
             $dataDB = Pagespeed::where('link', "=", $link)
                 ->where('created_at', '>', now()->subDays($days)->endOfDay())

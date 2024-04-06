@@ -110,7 +110,7 @@ class PagespeedController extends Controller
              Log::error("URL returned 404 for: $domain");
              unset($resultMobile, $resultDesktop, $pagespeeddb);
              return ('there was an error');
- 
+
          }*/
     }
 
