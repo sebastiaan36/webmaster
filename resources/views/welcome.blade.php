@@ -92,7 +92,7 @@
                     </div>
                     <div class="bg-theme-jade p-3 sm:p-12 rounded-lg sm:ml-[-60px]">
                         <p class="text-theme-teal text-center font-bold text-2xl"><span class="border-b-2 border-theme-teal">Digital dashboard to check your page scores</span></p>
-                    <img src="storage/images/homebanner.png" alt=""
+                    <img width="600" height="400" src="storage/images/homebanner.webp" alt=""
                          class="object-contain mt-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
                     </div>
                     </div>
