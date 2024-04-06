@@ -26,6 +26,7 @@ class Browsershot extends Command
      */
     public function handle()
     {
+        /*
         $this->info('Starting Browsershots');
         $domains = Domain::where('updated_at', '<', now()->subDays(-7))->limit(10)->get();
         $domainsCount = count($domains);
@@ -41,5 +42,6 @@ class Browsershot extends Command
             Domain::where('id', '=', $domain->id)->update(['updated_at' => now()]);
         }
         $bar->finish();
+        */
     }
 }

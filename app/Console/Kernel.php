@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->command('Pagespeed:GetPagespeed')->hourly()->withoutOverlapping();
-        $schedule->command('app:browsershot')->hourly()->withoutOverlapping();
+        //$schedule->command('app:browsershot')->hourly()->withoutOverlapping();
 
     }
 

@@ -11,7 +11,6 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "spatie/browsershot": "^4.0",
         "spatie/image": "^3.4"
     },
     "require-dev": {
