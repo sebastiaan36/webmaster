@@ -12,7 +12,7 @@
                     <div class="rounded ml-2 p-2 bg-theme-teal text-theme-light"><a href="?days=30">30 days</a></div>
                     <div class="rounded ml-2 p-2 bg-theme-teal text-theme-light"><a href="?days=90">90 days</a></div>
                 </div>
-                <h4 class="text-lg pt-4">Average Speed over last {{ $days }} days for: <br \> <span class="text-3xl font-bold text-theme-jade">{{$link->url}}</span></h4>
+                <h4 class="text-lg pt-4">Average Speed over last {{ $days }} days for: <br \> <span class="text-3xl break-all font-bold text-theme-jade">{{$link->url}}</span></h4>
                 <div class=" p-2 sm:p-6 flex flex-row gap-2 flex-nowrap text-gray-900">
                     <div class="basis-1/4 p-2 sm:p-6 sm:basis-2/5 lg:basis-1/4:m6 text-center  rounded bg-theme-evergreen">
                         <p class="text-theme-light">Mobile Score</p>
@@ -61,7 +61,7 @@
                         <button id="mobileButton" class="p-3 mx-1 rounded-lg bg-theme-lemon">Mobile</button>
                         <button id="desktopButton" class="p-3 mx-1 rounded-lg bg-theme-lemon">Desktop</button>
                     </div>
-
+                    <div class="overflow-x-auto sm:overflow-hidden">
                     <table id="mobile" class="table-auto w-full border-collapse border">
                         <thead>
                         <tr>
@@ -145,18 +145,19 @@
                         @endforeach
                         <tr class="border-theme-teal border-t-2">
                             <td>Avarage</td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['mobile_score'],0)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['mobile_speed'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['FCP_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TBT_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['LCP_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TTI_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['CLS_mobile'],4)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['size_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['mobile_score'],0)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['mobile_speed'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['FCP_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TBT_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['LCP_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TTI_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['CLS_mobile'],4)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['size_mobile'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
                         </tr>
                         </tbody>
                     </table>
-
+                        </div>
+                    <div class="overflow-x-auto sm:overflow-hidden">
                     <table id="desktop" style="display: none" class="table-auto w-full border-collapse border">
                         <thead>
                         <tr>
@@ -240,17 +241,21 @@
                         @endforeach
                         <tr class="border-theme-teal border-t-2">
                             <td>Avarage</td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['desktop_score'],0)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['desktop_speed'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['FCP_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TBT_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['LCP_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TTI_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['CLS_desktop'],4)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
-                            <td><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['size_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['desktop_score'],0)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['desktop_speed'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['FCP_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TBT_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['LCP_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['TTI_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['CLS_desktop'],4)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
+                            <td class="min-w-20"><span class="flex flex-row justify-center"><span class="basis-1/4">{{round($pagespeedAvg['size_desktop'],2)}}</span><span style="font-size: 15px;" class="ml-2 h-full pt-1 material-symbols-outlined">all_inclusive</span></span></td>
                         </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div class="mt-32 text-left">
+                    <x-legend/>
+                    </div>
 
                 </div>
 
