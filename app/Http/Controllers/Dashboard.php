@@ -15,6 +15,9 @@ class Dashboard extends Controller
     public function index()
     {
         $domains = Domain::where('user_id', auth()->user()->id)->get();
+        if($domains->isEmpty()){
+            return view('dashboard');
+        }
         //$links = Link::where('domain', ;
         foreach ($domains as $domain){
             $count[$domain->id] = $domain->link()->count();
