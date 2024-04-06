@@ -16,7 +16,11 @@ class Dashboard extends Controller
     {
         $domains = Domain::where('user_id', auth()->user()->id)->get();
         if($domains->isEmpty()){
-            return view('dashboard');
+            $domains = array();
+            $count = "";
+            $pagespeed = array();
+            $graph = array();
+
         }
         //$links = Link::where('domain', ;
         foreach ($domains as $domain){
