@@ -54,7 +54,7 @@ class PostsController extends Controller
         $relatedPosts = Topic::with('posts')->firstWhere('slug', $post->topic[0]->slug);
 
 
-        dd($relatedPosts);
+        //dd($relatedPosts);
 
         if ($post) {
             event(new PostViewed($post));

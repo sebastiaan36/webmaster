@@ -468,7 +468,7 @@
                                 text: 'Score'
                             },
                             min: 0,
-                            max: 0.5,
+                            max: 1,
                             stepSize: 0.1,
                             decimalsInFloat: 2,
                         },

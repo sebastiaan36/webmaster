@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
 
-        $schedule->command('Pagespeed:GetPagespeed')->hourly()->withoutOverlapping();
+        $schedule->command('Pagespeed:GetPagespeed')->everyFifteenMinutes()->withoutOverlapping();
         //$schedule->command('app:browsershot')->hourly()->withoutOverlapping();
 
     }
