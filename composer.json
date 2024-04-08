@@ -11,7 +11,8 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "spatie/image": "^3.4"
+        "spatie/image": "^3.4",
+        "spatie/laravel-googletagmanager": "^2.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

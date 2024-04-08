@@ -38,9 +38,11 @@
             font-family: "Epilogue", sans-serif;
         }
     </style>
+    @include('googletagmanager::head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
+@include('googletagmanager::body')
 
 
 <x-navigation/>
