@@ -115,9 +115,10 @@
             <ul class="flex font-semibold text-theme-dark justify-between">
                 <!-- Active Link = text-indigo-500
                 Inactive Link = hover:text-indigo-500 -->
-                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="#how">How it works</a></li>
-                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="#price">Price</a></li>
-                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="#contact">Contact</a></li>
+                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="/#how">How it works</a></li>
+                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="/#price">Price</a></li>
+                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="/#contact">Contact</a></li>
+                <li class="md:px-4 md:py-2 hover:text-theme-evergreen"><a href="/blog">Blog</a></li>
             </ul>
         </div>
         <div class="order-2 md:order-3">
