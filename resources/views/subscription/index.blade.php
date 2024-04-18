@@ -16,6 +16,7 @@
                         <h2 class="text-2xl font-bold text-theme-jade">Free!</h2>
                         <h3 class="text-lg font-bold text-theme-jade">€ 0,-</h3>
                         <p>Test only your homepage for free.</p>
+                        <a class="p-2 bg-theme-jade rounded-lg text-white" href="{{ route('subscription.subscribe', 'Free') }}">Subscribe</a>
 
                     </div>
 
