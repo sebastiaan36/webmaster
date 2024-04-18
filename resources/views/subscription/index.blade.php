@@ -4,6 +4,11 @@
         <div class="px-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
 
 

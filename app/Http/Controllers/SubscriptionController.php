@@ -19,7 +19,7 @@ class SubscriptionController extends Controller
 
         $user = Auth::user();
 
-        $name = ucfirst($plan) . ' membership';
+        $name = ucfirst($plan);
 
         if(!$user->subscribed($name, $plan)) {
 
