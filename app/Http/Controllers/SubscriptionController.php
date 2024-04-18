@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Cashier\Http\RedirectToCheckoutResponse;
 
 class SubscriptionController extends Controller
 {
@@ -26,6 +27,7 @@ class SubscriptionController extends Controller
             $result = $user->newSubscription($name, $plan)->create();
 
             if(is_a($result, RedirectToCheckoutResponse::class)) {
+                //return $result->payment()->getCheckoutUrl();
                 return $result; // Redirect to Mollie checkout
             }
 

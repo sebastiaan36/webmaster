@@ -90,7 +90,7 @@ return [
         /**
          * The default description for the first payment, visible on both the invoice and the customer bank records.
          */
-        'description' => 'Welcome to '.config('app.name'),
+        'description' => 'PagespeedTracker.com',
     ],
 
     /**
@@ -129,7 +129,7 @@ return [
         /**
          * The default description for the update payment method, visible on both the invoice and the customer bank records.
          */
-        'description' => 'Update payment method for '.config('app.name'),
+        'description' => 'Update payment method for PagespeedTracker.com',
     ],
 
 ];
