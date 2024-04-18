@@ -19,10 +19,10 @@ class SubscriptionController extends Controller
     {
 
         $user = Auth::user();
-
+        //dd($plan);
         $name = ucfirst($plan);
 
-        if(!$user->subscribed($name, $plan)) {
+        if(!$user->subscribed('default', $plan)) {
 
             $result = $user->newSubscription($name, $plan)->create();
 
