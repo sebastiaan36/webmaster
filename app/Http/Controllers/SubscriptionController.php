@@ -19,12 +19,12 @@ class SubscriptionController extends Controller
     {
 
         $user = Auth::user();
-
+        //dd($plan);
         $name = ucfirst($plan);
 
-        if(!$user->subscribed('Company')) {
+        if(!$user->subscribed($name, $plan)) {
 
-            $result = $user->newSubscription($name, $plan)->create();
+            $result = $user->newSubscription($name, 'Company')->create();
 
             if(is_a($result, RedirectToCheckoutResponse::class)) {
                 //return $result->payment()->getCheckoutUrl();
