@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse;
 
@@ -15,16 +16,16 @@ class SubscriptionController extends Controller
         return view('subscription.index')->with(compact('plans'));
     }
 
-    public function subscribe($plan)
+    public function subscribe(string $plan)
     {
 
         $user = Auth::user();
         //dd($plan);
-        $name = ucfirst($plan);
+        $name = ucfirst($plan) . ' membership';
 
-        if(!$user->subscribed($name, 'Company')) {
+        if(!$user->subscribed($plan)) {
 
-            $result = $user->newSubscription($name, 'Company')->create();
+            $result = $user->newSubscription($name, $plan)->create();
 
             if(is_a($result, RedirectToCheckoutResponse::class)) {
                 //return $result->payment()->getCheckoutUrl();
