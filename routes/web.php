@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
     Route::get('/subscription/{plan}', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe');
-
+    Route::get('/subscription/success',[SubscriptionController::class, 'success'])->name('subscription.success');
     Route::middleware(EnsureUserIsSubscribed::class)->group(function () {
 
         Route::resource('pagespeed', PagespeedController::class);

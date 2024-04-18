@@ -18,6 +18,10 @@ class SubscriptionController extends Controller
 
         $user = auth()->user();
         $result = $user->newSubscription('main', $plan)->create();
-        return view('dashboard');
+        return view('subscription.success');
+    }
+    public function success()
+    {
+        return view('subscription.success');
     }
 }
