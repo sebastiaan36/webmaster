@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
+    use Billable;
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -23,6 +26,19 @@ class User extends Authenticatable
         'email',
         'password',
         'domain',
+        'mollie_customer_id',
+        'mollie_mandate_id',
+        'tax_percentage',
+        'trial_ends_at',
+        'extra_billing_information',
+        'company',
+        'address',
+        'zipcode',
+        'country',
+        'city',
+        'phone',
+        'vat_number',
+
     ];
 
     /**
@@ -43,10 +59,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'trial_ends_at' => 'datetime',
+    ];
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'trial_ends_at'
     ];
 
     public function domains(): HasMany
     {
         return $this->hasMany(Domain::class);
     }
+
 }

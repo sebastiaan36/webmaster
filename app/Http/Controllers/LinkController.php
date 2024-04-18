@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Pagespeed;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LinkController extends Controller
 {
@@ -171,6 +172,10 @@ class LinkController extends Controller
     public function check404($url)
     {
         $headers = get_headers($url, 1);
+        //log $headers[0] to log
+        Logg::Debug($headers[0]);
+
+
         if ($headers[0] != 'HTTP/1.1 200 OK') return true; else return false;
     }
 }

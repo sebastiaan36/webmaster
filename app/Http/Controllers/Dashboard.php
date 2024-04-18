@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Domain;
+use App\Models\Cashier\Subscription;
 
 
 
@@ -14,6 +15,7 @@ class Dashboard extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
         $domains = Domain::where('user_id', auth()->user()->id)->get();
         if($domains->isEmpty()){
             $domains = array();
@@ -22,6 +24,7 @@ class Dashboard extends Controller
             $graph = array();
 
         }
+
         //$links = Link::where('domain', ;
         foreach ($domains as $domain){
             $count[$domain->id] = $domain->link()->count();

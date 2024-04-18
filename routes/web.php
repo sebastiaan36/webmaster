@@ -7,8 +7,10 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\BrowsershotController;
 use App\Http\Controllers\Dashboard;
+use App\Http\Middleware\EnsureUserIsSubscribed;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -38,17 +40,22 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('pagespeed', PagespeedController::class);
-    Route::resource('domain', DomainController::class);
-    //Route::resource('link', LinkController::class);
-    // all links have a domain, make the route reflect that
-    Route::resource('domain.link', LinkController::class);
+
+    Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+    Route::get('/subscription/{plan}', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe');
+
+    Route::middleware(EnsureUserIsSubscribed::class)->group(function () {
+
+        Route::resource('pagespeed', PagespeedController::class);
+        Route::resource('domain', DomainController::class);
+        Route::resource('domain.link', LinkController::class);
+        Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+
+    });
 
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
-});
+
     //Route::resource('post', PostsController::class);
 Route::get('/blog', [PostsController::class, 'index'])->name('post.index');
 //Route::get('/blog/{post:categorie}/{post:slug}', [PostsController::class, 'show'])->name('post.show');
@@ -95,7 +102,5 @@ Route::get('/linkstorage', function () {
 });
 
 Route::get('/testmail', [MailController::class, 'index']);
-
-Route::get('/screenshot', [BrowsershotController::class, 'screenshot']);
 
 Route::get('/contact', [MailController::class, 'SendMail'])->name('contact.sendmail');

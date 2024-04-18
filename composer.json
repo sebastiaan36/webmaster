@@ -11,6 +11,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "mollie/laravel-cashier-mollie": "*",
         "spatie/image": "^3.4",
         "spatie/laravel-googletagmanager": "^2.7"
     },
